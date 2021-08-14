@@ -2,3 +2,18 @@
   background-color: rgb(236, 117, 117);
   border: 1px solid rgb(124, 2, 2);
 }
+.amount {
+  position: absolute;
+  top: -15px;
+  padding: 2px;
+  right: -5px;
+  background-color: rgb(243, 241, 241);
+  color: rgb(27, 69, 255) !important;
+  border: 1px solid rgb(27, 69, 255);
+  font-weight: 700;
+
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  color: rgb(29, 29, 29);
+}

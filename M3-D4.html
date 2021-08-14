@@ -43,7 +43,7 @@
   <body>
     <input
       type="text"
-      class="form-control"
+      class="form-control mt-2 container fixed-top shadow"
       placeholder="Search..."
       onchange="filterBooks(this.value)"
     />
@@ -51,11 +51,12 @@
       <!-- Button trigger modal -->
       <button
         type="button"
-        class="btn btn-primary mr-5 mt-3"
+        class="btn btn-primary fixed-bottom"
         data-toggle="modal"
         data-target="#shoppingCart"
+        style="left: 90%; bottom: 5%"
       >
-        Launch demo modal
+        Shopping Cart <span class="amount">0</span>
       </button>
 
       <!-- Modal -->
@@ -80,13 +81,7 @@
               </button>
             </div>
             <div class="modal-body">
-              <ul class="list-group shopping-list">
-                <li class="list-group-item">An item</li>
-                <li class="list-group-item">A second item</li>
-                <li class="list-group-item">A third item</li>
-                <li class="list-group-item">A fourth item</li>
-                <li class="list-group-item">And a fifth one</li>
-              </ul>
+              <ul class="list-group shopping-list"></ul>
             </div>
             <div class="modal-footer">
               <button
@@ -104,7 +99,7 @@
         </div>
       </div>
     </div>
-    <div class="container">
+    <div class="container mt-5">
       <div class="row book-row"></div>
     </div>
 

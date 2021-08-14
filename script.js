@@ -53,12 +53,25 @@ function displayBooks(books) {
                         <h5 class="card-title">${book.title}</h5>
                         <p class="card-text price">${book.price}</p>
                         <button type="button" onclick="addToCart(this.parentNode.parentNode)" class="btn btn-light add-to-cart">Add to Cart</button>
+                        <button type="button" onclick="skipThis(this.parentNode.parentNode)" class="btn btn-light add-to-cart">Skip</button>
                         </div>
                     </div>
             `;
     row.appendChild(bookContainer);
   });
 }
+
+function filterBooks(query) {
+  // displayBooks(books.filter(b => b.title.includes(query)))
+  if (query.length > 2) {
+    const filteredBooks = books.filter((book) =>
+      book.title.toLowerCase().includes(query.toLowerCase())
+    );
+
+    displayBooks(filteredBooks);
+  }
+}
+
 let cart = [];
 
 function makeBook(title, price) {
@@ -71,10 +84,31 @@ function addToCart(el) {
   let book = makeBook(bookTitle, +bookPrice);
   cart.push(book);
   console.log(book);
+  displayShoppingCart();
   el.classList.add("sold");
 }
 
-function shoppingCart() {
+function displayShoppingCart() {
   let shoppingCartContainer = document.querySelector(".shopping-list");
-  let item = document.createElement();
+  let amount = document.querySelector(".amount");
+  let i = 0;
+  shoppingCartContainer.innerHTML = "";
+  cart.forEach((bookItem) => {
+    let listItem = document.createElement("li");
+    listItem.classList.add("list-group-item");
+    listItem.innerHTML = `${bookItem.title} ${bookItem.price}
+    `;
+
+    i++;
+    amount.innerHTML = i.toString();
+
+    console.log(i);
+    shoppingCartContainer.append(listItem);
+  });
+}
+
+function skipThis(el) {
+  setTimeout(() => {
+    el.innerHTML = "";
+  }, 1000);
 }
